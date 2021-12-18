@@ -24,6 +24,8 @@ public class Card {
 
     private int getRankPretty() {
         switch (this.rank) {
+            case "Ace":
+                return 1;
             case "Two":
                 return 2;
             case "Three":
@@ -53,6 +55,27 @@ public class Card {
         }
     }
 
+    @Override
+    public String toString() {
+        String prettySuit = this.getSuitPretty();
+        int prettyRank = this.getRankPretty();
+        String card = "------------------------------\n" +
+                "|" + prettyRank + "             " + prettySuit + "             " + prettyRank + "|\n" +
+                "|                             |\n" +
+                "|                             |\n" +
+                "|                             |\n" +
+                "|              " + prettySuit + "              |\n" +
+                "|                             |\n" +
+                "|                             |\n" +
+                "|                             |\n" +
+                "|" + prettyRank + "             " + prettySuit + "             " + prettyRank + "|\n" +
+                "------------------------------";
+        return card;
+
+    }
+
     public static void main(String[] args) {
+        Card card = new Card("Clubs", "Five");
+        System.out.println(card);
     }
 }
