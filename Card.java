@@ -55,6 +55,10 @@ public class Card {
         }
     }
 
+    public int getValue() {
+        return getRankPretty();
+    }
+
     @Override
     public String toString() {
         String prettySuit = this.getSuitPretty();
@@ -75,7 +79,7 @@ public class Card {
     }
 
     public static void main(String[] args) {
-        Card card = new Card("Clubs", "Five");
+        Card card = new Card("Clubs", "King");
         System.out.println(card);
     }
 }
