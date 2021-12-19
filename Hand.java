@@ -10,9 +10,13 @@ public class Hand {
         this.cards = new ArrayList<Card>();
     }
 
-    public Card getNextCard() {
-        // returns the next card in the deck
-        return this.cards.remove(0);
+    public ArrayList<Card> getNextCard(int depth) {
+        // returns the number of cards at the beginning of the hand specified by depth
+        ArrayList<Card> removed = new ArrayList<Card>();
+        for (int i = 0; i < depth; i++) {
+            removed.add(this.cards.remove(0));
+        }
+        return removed;
     }
 
     public void addCard(Card card) {
