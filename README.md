@@ -1,1 +1,3 @@
-# deck-o-cards
+# deck o' cards
+
+Hey!!! This is just a little pet project in Java cause I haven't worked in Java in a minute and I just want to make sure that a still remember how to do it. Right now its functionality is pretty low just a cause I started working on it yesterday and I don't really know what I'm doing lol. With any luck it will be able to play games of War (pretty simple tbh) and hopefully [Egyption Ratscrew](https://bicyclecards.com/how-to-play/egyptian-rat-screw/) which would be a bit more complicated and I could maybe even include a real life player against the machine. IDK if I can really do much more games cause I'm absolutley not doing any ML (its scary). Anyways feel free to stick around and watch the trainreck.
