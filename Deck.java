@@ -29,8 +29,34 @@ public class Deck {
         return shuffledDeck;
     }
 
+    public void deal(ArrayList<Hand> hands) {
+        ArrayList<Card> shuffledDeck = this.shuffle();
+        int cardsPerHand = shuffledDeck.size() / hands.size();
+        for (int i = 0; i < cardsPerHand; i++) {
+            for (Hand hand : hands) {
+                hand.addCard(shuffledDeck.remove(0));
+            }
+        }
+        if (shuffledDeck.size() > 0) {
+            for (Hand hand : hands) {
+                try {
+                    hand.addCard(shuffledDeck.remove(0));
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Deck deck = new Deck();
-        System.out.println(deck.shuffle());
+        ArrayList<Hand> hands = new ArrayList<Hand>();
+        String[] names = { "Joe", "Bob", "Sally", "Mary", "Tom" };
+        for (String name : names) {
+            hands.add(new Hand(name));
+        }
+        deck.deal(hands);
+        for (Hand hand : hands) {
+            System.out.println(hand.toString());
+        }
     }
 }
