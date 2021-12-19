@@ -2,8 +2,11 @@ import java.util.ArrayList;
 
 public class Hand {
     private ArrayList<Card> cards;
+    public String name;
 
-    public Hand() {
+    public Hand(String name) {
+        this.name = name;
+        this.cards = new ArrayList<Card>();
     }
 
     public Card getNextCard() {
