@@ -19,7 +19,7 @@ public class Hand {
 
     @Override
     public String toString() {
-        String hand = "";
+        String hand = this.name + "'s hand:\n";
         for (Card card : this.cards) {
             hand += card.toString() + "\n";
         }
