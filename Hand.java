@@ -24,6 +24,11 @@ public class Hand {
         this.cards.add(card);
     }
 
+    public void addCard(ArrayList<Card> cards) {
+        // adds an array of cards to the hand
+        this.cards.addAll(cards);
+    }
+
     @Override
     public String toString() {
         // prints each card in the hand
