@@ -3,11 +3,13 @@ public class Card {
     private String rank;
 
     public Card(String suit, String rank) {
+        // collect the suit and rank of the cards ex: "Spades", "Ace"
         this.suit = suit;
         this.rank = rank;
     }
 
     private String getSuitPretty() {
+        // return the suit of the card in a pretty format ex: "Spades" -> "♠"
         switch (this.suit) {
             case "Spades":
                 return "♠";
@@ -23,6 +25,7 @@ public class Card {
     }
 
     private int getRankPretty() {
+        // return the rank of the card in a pretty format ex: "Ace" -> 1
         switch (this.rank) {
             case "Ace":
                 return 1;
@@ -56,11 +59,13 @@ public class Card {
     }
 
     public int getValue() {
+        // return the value of the card ex: "Ace" -> 1 using the getRankPretty() method
         return getRankPretty();
     }
 
     @Override
     public String toString() {
+        // prints the card in a pretty format to look like a real card
         String prettySuit = this.getSuitPretty();
         int prettyRank = this.getRankPretty();
         String card = "------------------------------\n" +
