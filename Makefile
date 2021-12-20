@@ -21,3 +21,7 @@ runWar:
 	@echo "Running"
 	@clear
 	@java War
+
+runWarSimple:
+	@javac War.java -Xlint
+	@java War
