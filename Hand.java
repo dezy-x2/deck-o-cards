@@ -14,7 +14,12 @@ public class Hand {
         // returns the number of cards at the beginning of the hand specified by depth
         ArrayList<Card> removed = new ArrayList<Card>();
         for (int i = 0; i < depth; i++) {
-            removed.add(this.cards.remove(0));
+            try {
+                removed.add(this.cards.remove(0));
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("No cards left in " + this.name + "'s hand.");
+                break;
+            }
         }
         return removed;
     }
