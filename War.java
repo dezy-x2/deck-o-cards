@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class War {
     public static void main(String[] args) {
+        Hand jacksHand = new Hand("Jack");
+        Hand johnsHand = new Hand("John");
 
     }
 
@@ -20,6 +22,16 @@ public class War {
         } else {
             hand1.addCard(cards1ForGrabs);
             hand2.addCard(cards2ForGrabs);
+        }
+    }
+
+    private Hand getWinner(Hand hand1, Hand hand2) {
+        if (hand1.getSize() == 0) {
+            return hand2;
+        } else if (hand2.getSize() == 0) {
+            return hand1;
+        } else {
+            return null;
         }
     }
 
