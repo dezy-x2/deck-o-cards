@@ -13,3 +13,11 @@ runDeck:
 	@echo "Running"
 	@clear
 	@java Deck
+
+runWar:
+	@clear
+	@echo "Compiling..."
+	@javac War.java -Xlint
+	@echo "Running"
+	@clear
+	@java War
