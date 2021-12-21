@@ -15,7 +15,9 @@ public class War {
     }
 
     private static void playGame(Hand hand1, Hand hand2) {
+        // continue playing until one of the hands is empty
         while (getWinner(hand1, hand2) == null) {
+            // we get the active card for each player
             Card hand1PlayCard = hand1.getNextCard(1).get(0);
             Card hand2PlayCard = hand2.getNextCard(1).get(0);
             String roundResults = compareCards(hand1PlayCard, hand2PlayCard);
@@ -24,6 +26,8 @@ public class War {
             } else if (roundResults.equals("card2")) {
                 hand2.addCard(hand1PlayCard);
             } else if (roundResults.equals("war")) {
+                hand1.addCard(hand1PlayCard);
+                hand2.addCard(hand2PlayCard);
                 handleWar(hand1, hand2);
             }
         }
@@ -52,9 +56,9 @@ public class War {
     }
 
     private static Hand getWinner(Hand hand1, Hand hand2) {
-        if (hand1.getSize() == 0 || hand1.getSize() == 1) {
+        if (hand1.getSize() == 0) {
             return hand2;
-        } else if (hand2.getSize() == 0 || hand2.getSize() == 1) {
+        } else if (hand2.getSize() == 0) {
             return hand1;
         } else {
             return null;
