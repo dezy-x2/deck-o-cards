@@ -68,7 +68,7 @@ public class Card {
         // prints the card in a pretty format to look like a real card
         String prettySuit = this.getSuitPretty();
         int prettyRank = this.getRankPretty();
-        String card = "------------------------------\n" +
+        String card = "\n------------------------------\n" +
                 "|" + prettyRank + "             " + prettySuit + "             " + prettyRank + "|\n" +
                 "|                             |\n" +
                 "|                             |\n" +
