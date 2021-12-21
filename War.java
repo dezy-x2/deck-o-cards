@@ -11,19 +11,23 @@ public class War {
                 add(johnsHand);
             }
         });
-        while (getWinner(jacksHand, johnsHand) == null) {
-            Card jacksPlayCard = jacksHand.getNextCard(1).get(0);
-            Card johnsPlayCard = johnsHand.getNextCard(1).get(0);
-            String roundResults = compareCards(jacksPlayCard, johnsPlayCard);
+        playGame(jacksHand, johnsHand);
+    }
+
+    private static void playGame(Hand hand1, Hand hand2) {
+        while (getWinner(hand1, hand2) == null) {
+            Card hand1PlayCard = hand1.getNextCard(1).get(0);
+            Card hand2PlayCard = hand2.getNextCard(1).get(0);
+            String roundResults = compareCards(hand1PlayCard, hand2PlayCard);
             if (roundResults.equals("card1")) {
-                jacksHand.addCard(johnsPlayCard);
+                hand1.addCard(hand2PlayCard);
             } else if (roundResults.equals("card2")) {
-                johnsHand.addCard(jacksPlayCard);
+                hand2.addCard(hand1PlayCard);
             } else if (roundResults.equals("war")) {
-                handleWar(jacksHand, johnsHand);
+                handleWar(hand1, hand2);
             }
         }
-        Hand finalWinner = getWinner(jacksHand, johnsHand);
+        Hand finalWinner = getWinner(hand1, hand2);
         if (finalWinner != null) {
             System.out.println(finalWinner.name + " wins!");
         }
@@ -32,8 +36,8 @@ public class War {
     private static void handleWar(Hand hand1, Hand hand2) {
         ArrayList<Card> cards1ForGrabs = hand1.getNextCard(4);
         ArrayList<Card> cards2ForGrabs = hand2.getNextCard(4);
-        Card warCard1 = cards1ForGrabs.remove(0);// ! somekind of error around here with it not catching that there
-        Card warCard2 = cards2ForGrabs.remove(0);// ! aren't enough cards
+        Card warCard1 = cards1ForGrabs.remove(0);
+        Card warCard2 = cards2ForGrabs.remove(0);
         String warResult = compareCards(warCard1, warCard2);
         if (warResult.equals("card1")) {
             hand1.addCard(cards1ForGrabs); // TODO: this still needs work since we don't have a way to handle war again
