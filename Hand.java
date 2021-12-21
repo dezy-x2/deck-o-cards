@@ -17,7 +17,6 @@ public class Hand {
             try {
                 removed.add(this.cards.remove(0));
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("No cards left in " + this.name + "'s hand.");
                 break;
             }
         }
