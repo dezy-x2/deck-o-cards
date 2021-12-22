@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class War {
     public static void main(String[] args) {
@@ -21,6 +22,7 @@ public class War {
             // we get the active card for each player
             Card hand1PlayCard = hand1.getNextCard(1).get(0);
             Card hand2PlayCard = hand2.getNextCard(1).get(0);
+            System.out.println(hand1PlayCard + " " + hand2PlayCard);
             // find out who won the round or if it is war
             String roundResults = compareCards(hand1PlayCard, hand2PlayCard);
             if (roundResults.equals("card1")) {
@@ -37,6 +39,11 @@ public class War {
                 hand1.addCard(hand1PlayCard);
                 hand2.addCard(hand2PlayCard);
                 handleWar(hand1, hand2);
+            }
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
         // find out who's the winner & give them their accolades
