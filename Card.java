@@ -28,7 +28,7 @@ public class Card {
         // return the rank of the card in a pretty format ex: "Ace" -> 1
         switch (this.rank) {
             case "Ace":
-                return 1;
+                return 14;
             case "Two":
                 return 2;
             case "Three":
