@@ -17,6 +17,7 @@ public class War {
     private static void playGame(Hand hand1, Hand hand2) {
         // continue playing until one of the hands is empty
         while (getWinner(hand1, hand2) == null) {
+            System.out.println(hand1.getSize() + " " + hand2.getSize());
             // we get the active card for each player
             Card hand1PlayCard = hand1.getNextCard(1).get(0);
             Card hand2PlayCard = hand2.getNextCard(1).get(0);
@@ -50,8 +51,8 @@ public class War {
         // we grab 4 instead of 3 so that we have their play card as well
         ArrayList<Card> cards1ForGrabs = hand1.getNextCard(4);
         ArrayList<Card> cards2ForGrabs = hand2.getNextCard(4);
-        Card warCard1 = cards1ForGrabs.remove(0);
-        Card warCard2 = cards2ForGrabs.remove(0);
+        Card warCard1 = cards1ForGrabs.get(0);
+        Card warCard2 = cards2ForGrabs.get(0);
         // find out who won
         String warResult = compareCards(warCard1, warCard2);
         if (warResult.equals("card1")) {
